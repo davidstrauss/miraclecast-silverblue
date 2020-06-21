@@ -1,5 +1,7 @@
 # Miraclecast on Fedora Silverblue
 
+*This doesn't work yet.*
+
 1. Create and enter a toolbox:
 
        toolbox create
@@ -30,3 +32,8 @@
 1. Also from outside the toolbox, start the Miraclecast controller:
 
        sudo ~/miraclecast/installroot/usr/bin/miracle-sinkctl
+
+## Notes
+
+* File `src/dhcp/dhcp.c` defaults to using `/bin/ip` when Fedora needs it to use `/usr/sbin/ip`. Otherwise, it will fail to issue an IP address to the peer.
+* The contents of `~/miraclecast/installroot/usr/bin/` must be in `PATH`, possibly for both utilities. Otherwise, wpa_supplicant will fail to load.
